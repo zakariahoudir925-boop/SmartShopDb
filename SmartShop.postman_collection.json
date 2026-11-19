@@ -1,0 +1,218 @@
+{
+  "info": {
+    "name": "SmartShop API",
+    "description": "Collection de requêtes pour tester l'API SmartShop",
+    "version": "1.0.0"
+  },
+  "item": [
+    {
+      "name": "Produits",
+      "item": [
+        {
+          "name": "Récupérer tous les produits",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/products",
+              "host": ["{{base_url}}", ""],
+              "path": ["api", "products"]
+            }
+          }
+        },
+        {
+          "name": "Récupérer un produit",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/products/P1",
+              "host": ["{{base_url}}", ""],
+              "path": ["api", "products", "P1"]
+            }
+          }
+        },
+        {
+          "name": "Créer un produit",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"id\":\"P10\",\"brand\":\"Lenovo\",\"price\":950}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/products",
+              "host": ["{{base_url}}", ""],
+              "path": ["api", "products"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Commandes",
+      "item": [
+        {
+          "name": "Récupérer une commande",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/orders/O1",
+              "host": ["{{base_url}}", ""],
+              "path": ["api", "orders", "O1"]
+            }
+          }
+        },
+        {
+          "name": "Créer une commande",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"id\":\"O6\",\"productIds\":[\"P1\",\"P3\",\"P5\"]}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/orders",
+              "host": ["{{base_url}}", ""],
+              "path": ["api", "orders"]
+            }
+          }
+        },
+        {
+          "name": "Récupérer les produits d'une commande",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/orders/O1/products",
+              "host": ["{{base_url}}", ""],
+              "path": ["api", "orders", "O1", "products"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Recommandations",
+      "item": [
+        {
+          "name": "Recommandations par commande",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/recommendations/order/O1?limit=5",
+              "host": ["{{base_url}}", ""],
+              "path": ["api", "recommendations", "order", "O1"],
+              "query": [
+                {
+                  "key": "limit",
+                  "value": "5"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Produits co-achetés",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/recommendations/cobought/P1?limit=5",
+              "host": ["{{base_url}}", ""],
+              "path": ["api", "recommendations", "cobought", "P1"],
+              "query": [
+                {
+                  "key": "limit",
+                  "value": "5"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Recommandations du panier",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"productIds\":[\"P1\",\"P3\",\"P5\"]}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/recommendations/basket?limit=5",
+              "host": ["{{base_url}}", ""],
+              "path": ["api", "recommendations", "basket"],
+              "query": [
+                {
+                  "key": "limit",
+                  "value": "5"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Produits populaires par catégorie",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/recommendations/category/Électronique?limit=5",
+              "host": ["{{base_url}}", ""],
+              "path": ["api", "recommendations", "category", "Électronique"],
+              "query": [
+                {
+                  "key": "limit",
+                  "value": "5"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Santé",
+      "item": [
+        {
+          "name": "Health Check",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/health",
+              "host": ["{{base_url}}", ""],
+              "path": ["health"]
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:5000"
+    }
+  ]
+}

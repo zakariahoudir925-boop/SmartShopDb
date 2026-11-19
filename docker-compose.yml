@@ -1,0 +1,55 @@
+version: '3.8'
+
+services:
+  neo4j:
+    image: neo4j:5
+    container_name: smartshop-neo4j
+    environment:
+      NEO4J_AUTH: neo4j/password
+      NEO4J_INITIAL_SERVER_MODE__ADVERTISED_ADDRESS: neo4j
+    ports:
+      - "7687:7687"
+      - "7474:7474"
+    volumes:
+      - neo4j_data:/var/lib/neo4j/data
+    networks:
+      - smartshop-network
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: smartshop-backend
+    environment:
+      NEO4J_URI: bolt://neo4j:7687
+      NEO4J_USER: neo4j
+      NEO4J_PASSWORD: password
+      PORT: 5000
+    ports:
+      - "5000:5000"
+    depends_on:
+      - neo4j
+    networks:
+      - smartshop-network
+    command: sh -c "npm install && node scripts/initDatabase.js && npm start"
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: smartshop-frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    networks:
+      - smartshop-network
+    environment:
+      REACT_APP_API_URL: http://localhost:5000/api
+
+volumes:
+  neo4j_data:
+
+networks:
+  smartshop-network:
+    driver: bridge

@@ -1,0 +1,109 @@
+.product-list-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--space-3xl) var(--space-lg);
+}
+
+.products-header {
+  margin-bottom: var(--space-3xl);
+}
+
+.products-title {
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-black);
+  margin: 0 0 var(--space-md) 0;
+}
+
+.products-count {
+  font-size: var(--font-size-sm);
+  color: var(--color-secondary);
+  margin: 0;
+}
+
+.products-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
+  color: var(--color-secondary);
+}
+
+.products-error {
+  background-color: #fee;
+  border: 1px solid var(--color-error);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+  color: var(--color-error);
+  text-align: center;
+}
+
+.products-empty {
+  text-align: center;
+  padding: var(--space-3xl) var(--space-lg);
+  color: var(--color-secondary);
+}
+
+.products-empty-icon {
+  font-size: 3rem;
+  margin-bottom: var(--space-lg);
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: var(--space-lg);
+}
+
+.product-card-wrapper {
+  display: flex;
+  cursor: pointer;
+  transition: opacity var(--transition-base);
+}
+
+.product-card-wrapper:hover {
+  opacity: 0.95;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .product-list-container {
+    padding: var(--space-2xl) var(--space-lg);
+  }
+
+  .products-grid {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: var(--space-md);
+  }
+}
+
+@media (max-width: 768px) {
+  .product-list-container {
+    padding: var(--space-2xl) var(--space-md);
+  }
+
+  .products-title {
+    font-size: var(--font-size-2xl);
+  }
+
+  .products-grid {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: var(--space-md);
+  }
+}
+
+@media (max-width: 480px) {
+  .product-list-container {
+    padding: var(--space-xl) var(--space-md);
+  }
+
+  .products-title {
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--space-md);
+  }
+
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-sm);
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "folders": [
+    {
+      "path": "backend",
+      "name": "🔧 Backend (Node.js/Express)"
+    },
+    {
+      "path": "frontend",
+      "name": "🎨 Frontend (React)"
+    }
+  ],
+  "settings": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true
+    },
+    "extensions.ignoreRecommendations": false,
+    "[javascript]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[json]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    }
+  },
+  "extensions": {
+    "recommendations": [
+      "dbaeumer.vscode-eslint",
+      "esbenp.prettier-vscode",
+      "msjsdiag.debugger-for-chrome",
+      "ms-vscode.vscode-typescript-next",
+      "eamodio.gitlens",
+      "GraphQL.vscode-graphql"
+    ]
+  }
+}

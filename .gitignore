@@ -1,0 +1,43 @@
+# Fichiers à ignorer pour Git
+
+# Dépendances Node
+node_modules/
+package-lock.json
+yarn.lock
+
+# Fichiers d'environnement
+.env
+.env.local
+.env.*.local
+
+# IDE et éditeurs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Build et dist
+build/
+dist/
+*.log
+
+# React
+/frontend/build
+/frontend/.env
+
+# Backend
+/backend/node_modules
+/backend/.env
+
+# Neo4j
+/neo4j/data
+
+# OS
+Thumbs.db
+.Thumbs.db
+
+# Temporaires
+*.tmp
+temp/

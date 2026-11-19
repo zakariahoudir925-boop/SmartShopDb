@@ -1,0 +1,300 @@
+/* ============================================
+   NAVBAR - PREMIUM DESIGN
+   ============================================ */
+
+.navbar {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background: var(--color-white);
+  border-bottom: 1px solid transparent;
+  transition: all var(--transition-base);
+  z-index: var(--z-sticky);
+  box-shadow: var(--shadow-none);
+}
+
+.navbar.scrolled {
+  border-bottom-color: var(--color-gray-200);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.navbar-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-2xl);
+  padding: var(--spacing-lg) var(--spacing-xl);
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* BRAND SECTION */
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  min-width: fit-content;
+  cursor: pointer;
+  transition: transform var(--transition-base);
+}
+
+.navbar-brand:hover {
+  transform: translateY(-2px);
+}
+
+.navbar-logo {
+  font-size: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  background: linear-gradient(135deg, var(--color-primary-600), var(--color-secondary-600));
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-md);
+}
+
+.navbar-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.navbar-title {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  margin: 0;
+  background: linear-gradient(135deg, var(--color-primary-600), var(--color-secondary-600));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -0.5px;
+}
+
+.navbar-tagline {
+  font-size: var(--font-size-xs);
+  color: var(--text-tertiary);
+  margin: 0;
+  font-weight: var(--font-weight-medium);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* SEARCH SECTION */
+.navbar-search-wrapper {
+  flex: 1;
+  max-width: 500px;
+}
+
+.navbar-search {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  padding: var(--spacing-md) var(--spacing-lg);
+  background: var(--color-gray-50);
+  border: 1px solid var(--color-gray-200);
+  border-radius: var(--radius-xl);
+  transition: all var(--transition-base);
+}
+
+.navbar-search:focus-within {
+  background: var(--color-white);
+  border-color: var(--color-primary-600);
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.search-icon {
+  font-size: 18px;
+  color: var(--text-tertiary);
+  flex-shrink: 0;
+}
+
+.search-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  font-size: var(--font-size-base);
+  color: var(--text-primary);
+  padding: 0;
+}
+
+.search-input::placeholder {
+  color: var(--text-tertiary);
+}
+
+.search-input:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.search-clear {
+  background: none;
+  border: none;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  color: var(--text-tertiary);
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-base);
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.search-clear:hover {
+  background: var(--color-gray-200);
+  color: var(--text-primary);
+}
+
+/* ACTIONS SECTION */
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-lg);
+  min-width: fit-content;
+}
+
+.navbar-cart-btn {
+  position: relative;
+  background: linear-gradient(135deg, var(--color-primary-600), var(--color-secondary-600));
+  color: var(--color-white);
+  border: none;
+  border-radius: var(--radius-xl);
+  padding: var(--spacing-md) var(--spacing-lg);
+  font-size: 20px;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  font-weight: var(--font-weight-semibold);
+  box-shadow: var(--shadow-md);
+}
+
+.navbar-cart-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.navbar-cart-btn:active {
+  transform: translateY(0);
+}
+
+.cart-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+}
+
+.cart-badge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: var(--color-accent);
+  color: var(--color-white);
+  border-radius: var(--radius-full);
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-bold);
+  box-shadow: 0 2px 8px rgba(255, 107, 107, 0.3);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .navbar-container {
+    gap: var(--spacing-lg);
+    padding: var(--spacing-md) var(--spacing-lg);
+  }
+
+  .navbar-search-wrapper {
+    max-width: 300px;
+  }
+
+  .navbar-text {
+    display: none;
+  }
+
+  .navbar-logo {
+    width: 40px;
+    height: 40px;
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar-container {
+    gap: var(--spacing-md);
+    padding: var(--spacing-md);
+  }
+
+  .navbar-brand {
+    gap: var(--spacing-sm);
+  }
+
+  .navbar-search-wrapper {
+    flex: 1;
+    max-width: 100%;
+    min-width: 120px;
+  }
+
+  .navbar-search {
+    padding: var(--spacing-sm) var(--spacing-md);
+  }
+
+  .search-icon {
+    font-size: 16px;
+  }
+
+  .search-input {
+    font-size: var(--font-size-sm);
+  }
+
+  .navbar-cart-btn {
+    padding: var(--spacing-md);
+    gap: 0;
+  }
+
+  .navbar-title {
+    font-size: var(--font-size-lg);
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar-container {
+    padding: var(--spacing-sm) var(--spacing-md);
+  }
+
+  .navbar-search {
+    padding: var(--spacing-sm);
+  }
+
+  .search-input::placeholder {
+    font-size: var(--font-size-xs);
+  }
+
+  .navbar-logo {
+    width: 36px;
+    height: 36px;
+    font-size: 20px;
+  }
+
+  .search-icon {
+    display: none;
+  }
+
+  .navbar-cart-btn {
+    padding: var(--spacing-md);
+    border-radius: var(--radius-lg);
+  }
+}
